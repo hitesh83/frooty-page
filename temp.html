@@ -1,0 +1,33 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <head>
+      <script type="text/javascript">
+
+        var http_request = new XMLHttpRequest();
+
+        function makeRequest()
+        {
+          http_request.onreadystatechange = handleCheckboxRequest;
+          http_request.open('GET','http://supersign.mywire.org:100/temp.txt',true);
+          http_request.send(null);
+        }  
+
+        function handleCheckboxRequest()
+        {     
+          if (http_request.readyState == 4 && http_request.status == 200) 
+          {
+            document.getElementById('test').innerHTML = http_request.responseText;
+          }
+        }     
+      </script>
+  </head>
+  <body>
+    <div class="top">
+      <div id="test">text to be replaced</div>
+    </div>
+  </body>
+</html>
